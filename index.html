@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#128a9e">
+  <meta name="description" content="Auftragsplaner von BGS Brillianta Gebäude Service">
+  <title>BGS Auftragsplaner</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/favicon-64.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="BGS Planer">
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="img/logo.png" alt="BGS Brillianta Gebäude Service">
+      <div class="brand-divider"></div>
+      <div class="brand-name">Auftragsplaner<small id="brandSub">Übersicht</small></div>
+    </div>
+    <div class="top-actions">
+      <label class="filter" title="Nur Aufträge eines Mitarbeiters zeigen">
+        <span class="filter-icon">👤</span>
+        <select id="employeeFilter" aria-label="Mitarbeiter-Filter"></select>
+      </label>
+      <button class="icon-btn" id="hoursBtn" title="Stundenübersicht">⏱</button>
+      <button class="icon-btn" id="settingsBtn" title="Einstellungen">⚙️</button>
+      <button class="mic-btn" id="micBtn" title="Auftrag per Sprache eintragen">
+        <span class="mic-dot"></span><span class="mic-label" id="micLabel">Sprechen</span>
+        <span class="ai-badge" id="aiBadge" hidden>KI</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="calbar">
+      <div>
+        <h1 id="monthLabel"></h1>
+        <div class="calbar-sub" id="todayLabel"></div>
+      </div>
+      <div class="navs">
+        <button class="nav-btn" id="prevBtn" aria-label="Vorheriger Monat">‹</button>
+        <button class="nav-btn today-btn" id="todayBtn">Heute</button>
+        <button class="nav-btn" id="nextBtn" aria-label="Nächster Monat">›</button>
+      </div>
+    </section>
+    <div class="weekdays"><div>Mo</div><div>Di</div><div>Mi</div><div>Do</div><div>Fr</div><div>Sa</div><div>So</div></div>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <button class="fab" id="fabMic" aria-label="Auftrag per Sprache eintragen">🎤</button>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  </div>
+  <div class="overlay overlay-top" id="dialogOverlay" hidden>
+    <div class="modal modal-small" id="dialog" role="alertdialog" aria-modal="true"></div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

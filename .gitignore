@@ -1,0 +1,5 @@
+# Persönliche Daten-Exporte und Sicherungen nie hochladen
+*.json
+!manifest.webmanifest
+Thumbs.db
+desktop.ini
